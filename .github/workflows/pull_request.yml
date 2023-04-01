@@ -24,25 +24,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-      - uses: actions/checkout@v2
       - name: Run Cppcheck
+        uses: actions/checkout@v2
         run: cppcheck --language=c++ --enable=all .
         id: cppcheck
 
-      - uses: actions/checkout@v2
       - name: Upload Cppcheck results
+        uses: actions/checkout@v2
         with:
           name: cppcheck-results
           path: cppcheck-results.xml
 
-      - uses: actions/checkout@v2
       - name: Run Cpplint
+        uses: actions/checkout@v2
         run: cpplint --recursive .
         id: cpplint
 
-      - uses: actions/checkout@v2
       - name: Upload Cpplint results
-        uses: actions/upload-artifact@v2
+        uses: actions/checkout@v2
         with:
           name: cpplint-results
           path: cpplint-results.txt    
