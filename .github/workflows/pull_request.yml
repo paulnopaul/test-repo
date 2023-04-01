@@ -11,7 +11,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Build code
         run: |
@@ -21,7 +21,7 @@ jobs:
           make
 
       - name: Upload binary
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: my_executable
           path: build/MyProject
@@ -30,15 +30,21 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Install Valgrind
         run: sudo apt-get install valgrind
 
+      - name: Download executable
+        uses: actions/download-artifact@v3
+        with:
+          name: my_executable
+          path: my_executable
+
       - name: Run Valgrind
         run: valgrind --leak-check=full ./my_executable
       - name: Upload Valgrind results
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: valgrind-results
           path: valgrind-results.txt
@@ -46,7 +52,7 @@ jobs:
   # static-analysis:
   #   runs-on: ubuntu-latest
   #   steps:
-  #     - uses: actions/checkout@v2
+  #     - uses: actions/checkout@v3
 
   #     - name: Install Cppcheck
   #       run: sudo apt-get install cppcheck
@@ -56,7 +62,7 @@ jobs:
   #       id: cppcheck
 
   #     - name: Upload Cppcheck results
-  #       uses: actions/upload-artifact@v2
+  #       uses: actions/upload-artifact@v3
   #       with:
   #         name: cppcheck-results
   #         path: cppcheck-results.xml
@@ -69,7 +75,7 @@ jobs:
   #       id: cpplint
 
   #     - name: Upload Cpplint results
-  #       uses: actions/upload-artifact@v2
+  #       uses: actions/upload-artifact@v3
   #       with:
   #         name: cpplint-results
   #         path: cpplint-results.txt    
