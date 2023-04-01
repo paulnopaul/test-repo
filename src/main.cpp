@@ -1,11 +1,12 @@
-#include "MyClass.hpp"
-
+// Copyright 2023 Pavel Cheklin
 #include <iostream>
 
-int main() {
-	auto a = MyClass("Ivan");
-	
-	std::cout << a.getName() << std::endl;
+#include "include/MyClass.hpp"
 
-	return 0;
+int main() {
+    auto a = MyClass("Ivan");
+
+    std::cout << a.getName() << std::endl;
+
+    return 0;
 }
