@@ -29,7 +29,7 @@ jobs:
         run: sudo apt-get install cppcheck
 
       - name: Run Cppcheck
-        run: cppcheck --language=c++ --enable=all .
+        run: cppcheck --enable=all --suppress=missingInclude --include=include .
         id: cppcheck
 
       - name: Upload Cppcheck results

@@ -2,6 +2,7 @@
 #include "include/MyClass.hpp"
 
 #include <string>
+#include <cstdlib>
 
 MyClass::MyClass(std::string aName) : mName(aName) {
 }
