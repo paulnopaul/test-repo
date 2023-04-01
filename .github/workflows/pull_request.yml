@@ -20,5 +20,29 @@ jobs:
           cmake ..
           make
 
+  cppcheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run Cppcheck
+        run: cppcheck --language=c++ --enable=all .
+        id: cppcheck
+
+      - name: Upload Cppcheck results
+        with:
+          name: cppcheck-results
+          path: cppcheck-results.xml
+
+      - name: Run Cpplint
+        run: cpplint --recursive .
+        id: cpplint
+
+      - name: Upload Cpplint results
+        uses: actions/upload-artifact@v2
+        with:
+          name: cpplint-results
+          path: cpplint-results.txt    
+  
     
   
