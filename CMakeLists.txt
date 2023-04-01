@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.5)
 
 project(MyProject)
 
+set(CMAKE_CXX_STANDART 17)
+
 # Add your source files here
 set(SOURCES 
     src/main.cpp
@@ -14,7 +16,6 @@ include_directories(
 )
 
 # Set any compiler flags you need here
-set(CMAKE_CXX_STANDART 17)
 
 # Create the executable target
 add_executable(${PROJECT_NAME} ${SOURCES})

@@ -1,7 +1,7 @@
 // Copyright 2023 Pavel Cheklin
 #include <iostream>
 
-#include "include/MyClass.hpp"
+#include "MyClass.hpp"
 
 int main() {
     auto a = MyClass("Ivan");
