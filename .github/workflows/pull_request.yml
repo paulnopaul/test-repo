@@ -30,7 +30,6 @@ jobs:
         id: cppcheck
 
       - name: Upload Cppcheck results
-        uses: actions/checkout@v2
         with:
           name: cppcheck-results
           path: cppcheck-results.xml
@@ -41,7 +40,6 @@ jobs:
         id: cpplint
 
       - name: Upload Cpplint results
-        uses: actions/checkout@v2
         with:
           name: cpplint-results
           path: cpplint-results.txt    
