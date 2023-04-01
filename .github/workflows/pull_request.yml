@@ -25,6 +25,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Install Cppcheck
+        run: sudo apt-get install cppcheck
+
       - name: Run Cppcheck
         run: cppcheck --language=c++ --enable=all .
         id: cppcheck
@@ -34,6 +37,9 @@ jobs:
         with:
           name: cppcheck-results
           path: cppcheck-results.xml
+
+      - name: Install Cpplint
+        run: sudo apt-get install python3-pip && pip3 install cpplint
 
       - name: Run Cpplint
         run: cpplint --recursive .
