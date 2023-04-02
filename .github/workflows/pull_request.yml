@@ -46,7 +46,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: MyProject.tar
-          path: MyProjects.tar
+          path: MyProject.tar
 
       - name: Check folder
         run: ls -la ./
