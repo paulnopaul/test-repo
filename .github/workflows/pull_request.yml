@@ -23,8 +23,8 @@ jobs:
       - name: Upload binary
         uses: actions/upload-artifact@v3
         with:
-          name: my_executable
-          path: build/MyProject
+          name: build_dir
+          path: build
 
   dynamic-analysis:
     needs: build
@@ -38,11 +38,11 @@ jobs:
       - name: Download executable
         uses: actions/download-artifact@v3
         with:
-          name: my_executable
-          path: my_executable
+          name: build_dir
+          path: build
 
       - name: Run Valgrind
-        run: valgrind --leak-check=full ./my_executable
+        run: valgrind --leak-check=full ./MyProject
       - name: Upload Valgrind results
         uses: actions/upload-artifact@v3
         with:
