@@ -41,6 +41,8 @@ jobs:
           name: build_dir
           path: build
 
+      - name: Check folder
+        run: ls -la build
       - name: Run Valgrind
         run: valgrind --leak-check=full ./build/MyProject
       - name: Upload Valgrind results
