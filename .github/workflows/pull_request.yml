@@ -49,7 +49,7 @@ jobs:
           path: MyProject.tar
 
       - name: Check folder
-        run: ls -la ./
+        run: ls -la ./MyProject.tar
 
       - name: Tar exetutable
         run: tar -xvzf MyProject.tar
