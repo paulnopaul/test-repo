@@ -20,8 +20,12 @@ jobs:
           cmake ..
           make
 
+      - name: pwd
+        run: pwd && ls -la
+
       - name: compress_exetutable
         run: tar -cvf MyProject.tar ./build/MyProject 
+
 
       - name: Upload binary
         uses: actions/upload-artifact@v3
