@@ -45,7 +45,7 @@ jobs:
         run: tree . 
 
       - name: Run Valgrind
-        run: valgrind --leak-check=full ./build/MyProject
+        run: valgrind --leak-check=full ./cpp_exetutable/MyProject
       - name: Upload Valgrind results
         uses: actions/upload-artifact@v3
         with:
