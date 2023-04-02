@@ -20,11 +20,14 @@ jobs:
           cmake ..
           make
 
+      - name: compress_exetutable
+        run: tar -cvf ./build/MyProject MyProject.tar
+
       - name: Upload binary
         uses: actions/upload-artifact@v3
         with:
-          name: build_dir
-          path: build
+          name: MyProject.tar
+          path: MyProject.tar
 
   dynamic-analysis:
     needs: build
@@ -38,8 +41,11 @@ jobs:
       - name: Download executable
         uses: actions/download-artifact@v3
         with:
-          name: build_dir
+          name: MyProject.tar
           path: build
+
+      - name: Tar exetutable
+        run: tar –xvzf MyProject.tar
 
       - name: Check folder
         run: ls -la build
