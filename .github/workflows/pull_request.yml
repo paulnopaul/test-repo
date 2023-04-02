@@ -42,7 +42,7 @@ jobs:
           path: ./cpp_executable
 
       - name: Check folder
-        run: tree . 
+        run: chmod +x ./cpp_executable/MyProject
 
       - name: Run Valgrind
         run: valgrind --leak-check=full ./cpp_executable/MyProject
