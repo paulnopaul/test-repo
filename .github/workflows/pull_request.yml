@@ -21,7 +21,7 @@ jobs:
           make
 
       - name: compress_exetutable
-        run: tar -cvf ./build/MyProject MyProject.tar
+        run: tar -cvf MyProject.tar ./build/MyProject 
 
       - name: Upload binary
         uses: actions/upload-artifact@v3
