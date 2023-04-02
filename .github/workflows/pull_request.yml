@@ -42,7 +42,7 @@ jobs:
           path: build
 
       - name: Run Valgrind
-        run: valgrind --leak-check=full ./MyProject
+        run: valgrind --leak-check=full ./build/MyProject
       - name: Upload Valgrind results
         uses: actions/upload-artifact@v3
         with:
