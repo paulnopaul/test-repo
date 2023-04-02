@@ -44,11 +44,15 @@ jobs:
           name: MyProject.tar
           path: build
 
+      - name: Check folder
+        run: ls -la ./
+
       - name: Tar exetutable
         run: tar –xvzf MyProject.tar
 
       - name: Check folder
-        run: ls -la build
+        run: ls -la ./
+
       - name: Run Valgrind
         run: valgrind --leak-check=full ./build/MyProject
       - name: Upload Valgrind results

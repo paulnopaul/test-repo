@@ -10,7 +10,7 @@ class MyClass {
 
     std::string getName();
 
-    void func() { malloc(10); }
+    void func() { void* x = malloc(10); x = NULL; }
  private:
     std::string mName;
 };
