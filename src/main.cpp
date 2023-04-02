@@ -5,8 +5,6 @@
 
 int main() {
     auto a = MyClass("Ivan");
-    a.func();
-
     std::cout << a.getName() << std::endl;
 
     return 0;
